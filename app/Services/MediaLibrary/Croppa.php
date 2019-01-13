@@ -46,11 +46,11 @@ class Croppa implements ImageServiceInterface
     }
     public function getSocialFallbackUrl(){
         Debugbar::addMessage( 'getSocialFallbackUrl');
-        return $this->getRawUrl($id);
+        return null;
     }
     public function getTransparentFallbackUrl(){
         Debugbar::addMessage( 'getTransparentFallbackUrl');
-        return $this->getRawUrl($id);
+        return null;
     }
 }
     // public function getUrl($id, array $params = [])

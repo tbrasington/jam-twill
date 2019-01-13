@@ -15,5 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/entries','EntryController@index');
+Route::get('/projects','EntryJSONController@index');
+Route::get('/projects/${entry}','EntryJSONController@show');
 //Route::module('entries', [], ['only' => ['index']] );

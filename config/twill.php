@@ -1,6 +1,20 @@
 <?php
 
 return [
+    'dashboard' => [
+        'modules' => [
+            'App\Models\Entry' => [ // module name if you added a morph map entry for it, otherwise FQCN of the model (eg. App\Models\Project)
+                'name' => 'entries', // module name
+                'label' => 'projects', // optional, if the name of your module above does not work as a label
+                'label_singular' => 'project', // optional, if the automated singular version of your name/label above does not work as a label
+                'count' => true, // show total count with link to index of this module
+                'create' => true, // show link in create new dropdown
+                'activity' => true, // show activities on this module in actities list
+                'draft' => true, // show drafts of this module for current user 
+                'search' => true, // show results for this module in global search
+            ],
+        ],
+    ],
     'media_library' => [
         'disk' => 'libraries',
         'endpoint_type' => env('MEDIA_LIBRARY_ENDPOINT_TYPE', 'local'),

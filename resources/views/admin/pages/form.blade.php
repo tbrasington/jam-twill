@@ -7,10 +7,6 @@
         'maxlength' => 100
     ])
 
-@formField('medias', [
-    'name' => 'cover',
-    'label' => 'Cover image', 
-])
 
 @formField('block_editor')
 
