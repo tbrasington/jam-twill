@@ -1,1 +1,1 @@
-{!!  $block->translatedinput('case_study')  !!}
+{!! $block['content']['quote'] !!}

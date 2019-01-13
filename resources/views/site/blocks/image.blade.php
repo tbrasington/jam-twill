@@ -1,1 +1,1 @@
-{!! $block['content']['quote'] !!}
+<img style="width:100%" src="<?=Croppa::url($block['medias'][0]['uuid'], 1920)?>">

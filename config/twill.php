@@ -6,7 +6,7 @@ return [
         'endpoint_type' => env('MEDIA_LIBRARY_ENDPOINT_TYPE', 'local'),
         'cascade_delete' => env('MEDIA_LIBRARY_CASCADE_DELETE', false),
         'local_path' => env('MEDIA_LIBRARY_LOCAL_PATH'),
-        'image_service' => env('MEDIA_LIBRARY_IMAGE_SERVICE', 'A17\Twill\Services\MediaLibrary\Local'),
+        'image_service' => env('MEDIA_LIBRARY_IMAGE_SERVICE', 'App\Services\MediaLibrary\Croppa'),
         'acl' => env('MEDIA_LIBRARY_ACL', 'private'),
         'filesize_limit' => env('MEDIA_LIBRARY_FILESIZE_LIMIT', 50),
         'allowed_extensions' => ['svg', 'jpg', 'gif', 'png', 'jpeg'],
@@ -45,16 +45,29 @@ return [
             ]
             ],
             'crops' => [
-                'gallery' => [
-                    'neutral' => [
+                'image' => [
+                    'default' => [
                         [
-                            'name' => 'neutral',
+                            'name' => 'Uncropped',
+                            'ratio' => null,
                             'minValues' => [
                                 'width' => 100,
                                 'height' => 100,
                             ],
                         ],
-                    ],
+                    ]
+                ], 
+                'gallery' => [
+                    'default' => [
+                        [
+                            'name' => 'Uncropped',
+                            'ratio' => null,
+                            'minValues' => [
+                                'width' => 100,
+                                'height' => 100,
+                            ],
+                        ],
+                    ]
                 ]
             ]
     ]

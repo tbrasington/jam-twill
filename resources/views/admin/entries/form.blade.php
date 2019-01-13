@@ -9,8 +9,7 @@
 
 @formField('medias', [
     'name' => 'cover',
-    'label' => 'Cover image',
-    'max' => 10,
+    'label' => 'Cover image'
 ])
 
 @formField('block_editor')

@@ -48,20 +48,10 @@ class Entry extends Model implements Sortable
         'cover' => [
             'default' => [
                 [
-                    'name' => 'landscape',
+                    'name' => '16:9',
                     'ratio' => 16 / 9,
-                ],
-                [
-                    'name' => 'portrait',
-                    'ratio' => 3 / 4,
-                ],
-            ],
-            'mobile' => [
-                [
-                    'name' => 'mobile',
-                    'ratio' => 1,
-                ],
-            ],
+                ]
+            ]
         ],
     ];
 
