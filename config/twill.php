@@ -51,11 +51,6 @@ return [
                 'title' => 'Gallery',
                 'icon' => 'image',
                 'component' => 'a17-block-gallery',
-            ],
-            'quote' => [
-                'title' => 'Quote',
-                'icon' => 'text',
-                'component' => 'a17-block-quote',
             ]
             ],
             'crops' => [

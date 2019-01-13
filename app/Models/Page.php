@@ -7,6 +7,7 @@ use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Behaviors\HasMedias;
 use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Model;
+use A17\Twill\Models\Block;
 
 class Page extends Model 
 {
@@ -31,9 +32,9 @@ class Page extends Model
     // ];
     
     // uncomment and modify this as needed if you use the HasSlug trait
-    // public $slugAttributes = [
-    //     'title',
-    // ];
+    public $slugAttributes = [
+        'title',
+    ];
 
     // add checkbox fields names here (published toggle is itself a checkbox)
     public $checkboxes = [
@@ -61,4 +62,8 @@ class Page extends Model
     //         ],
     //     ],
     // ];
+    public function content(){
+        return $this->morphMany(Block::class, 'blockable')->select(['id', 'blockable_id','content'])->orderBy('blocks.position', 'asc');
+     }
+
 }

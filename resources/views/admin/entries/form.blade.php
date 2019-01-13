@@ -4,7 +4,7 @@
     @formField('input', [
         'name' => 'description',
         'label' => 'Description',
-        'maxlength' => 100
+        'maxlength' => 500
     ])
 
 @formField('medias', [

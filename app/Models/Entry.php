@@ -58,4 +58,5 @@ class Entry extends Model implements Sortable
     public function content(){
         return $this->morphMany(Block::class, 'blockable')->select(['id', 'blockable_id','content'])->orderBy('blocks.position', 'asc');
      }
+
 }

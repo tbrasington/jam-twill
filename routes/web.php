@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/projects','EntryJSONController@index');
-Route::get('/projects/${entry}','EntryJSONController@show');
-//Route::module('entries', [], ['only' => ['index']] );
+Route::get('/projects/{slug}','EntryJSONController@show');
+
+Route::get('/pages','PagesJSONController@index');
+Route::get('/pages/{slug}','PagesJSONController@show');

@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Entry;
+use App\Models\Page;
 
-class EntryJSONController extends Controller
+class PagesJSONController extends Controller
 {
     //
     public function index() {
-        $entry=Entry::where('published', true)->get();
+        $entry=Page::where('published', true)->get();
         return $entry;
     }
 
     public function show($slug) {
         
-        $entry=Entry::where('published', true)->with('content')->whereHas('slugs', function ($q) use($slug){
+        $entry=Page::where('published', true)->with('content')->whereHas('slugs', function ($q) use($slug){
             $q->where('slug', $slug);
         })->get();
         return $entry;
