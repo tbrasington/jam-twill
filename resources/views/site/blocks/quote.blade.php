@@ -1,0 +1,1 @@
+{!!  $block->translatedinput('case_study')  !!}
