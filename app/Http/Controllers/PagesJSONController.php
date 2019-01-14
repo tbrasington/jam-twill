@@ -9,7 +9,7 @@ class PagesJSONController extends Controller
 {
     //
     public function index() {
-        $entry=Page::where('published', true)->get();
+        $entry=Page::where('published', true)->with('content')->with('slugs')->get();
         return $entry;
     }
 
