@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'hello';
 });
 
 Route::get('/projects','EntryJSONController@index');

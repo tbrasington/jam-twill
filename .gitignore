@@ -13,3 +13,4 @@ public/assets/admin
 public/mix-manifest.json
 public/hot
 public/uploads/*
+public/storage/*

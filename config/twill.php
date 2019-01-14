@@ -33,25 +33,30 @@ return [
         'file_service' => env('FILE_LIBRARY_FILE_SERVICE', 'A17\Twill\Services\FileLibrary\Disk'),
         'acl' => env('FILE_LIBRARY_ACL', 'public-read'),
         'filesize_limit' => env('FILE_LIBRARY_FILESIZE_LIMIT', 50),
-        'allowed_extensions' => [],
+        'allowed_extensions' => ['mp4'],
     ],
     'block_editor' => [
         'blocks' => [
-            'text' => [
-                'title' => 'Body text',
-                'icon' => 'text',
-                'component' => 'a17-block-text',
-            ],
-            'image' => [
-                'title' => 'Image',
-                'icon' => 'image',
-                'component' => 'a17-block-image',
-            ],
-            'gallery' => [
-                'title' => 'Gallery',
-                'icon' => 'image',
-                'component' => 'a17-block-gallery',
-            ]
+                'text' => [
+                    'title' => 'Body text',
+                    'icon' => 'text',
+                    'component' => 'a17-block-text',
+                ],
+                'image' => [
+                    'title' => 'Image',
+                    'icon' => 'image',
+                    'component' => 'a17-block-image',
+                ],
+                'gallery' => [
+                    'title' => 'Gallery',
+                    'icon' => 'image',
+                    'component' => 'a17-block-gallery',
+                ],
+                'video' => [
+                    'title' => 'Video',
+                    'icon' => 'text',
+                    'component' => 'a17-block-video',
+                ],
             ],
             'crops' => [
                 'image' => [
@@ -78,6 +83,7 @@ return [
                         ],
                     ]
                 ]
-            ]
+            ],
+            'files'=>['video_file']
     ]
 ];
