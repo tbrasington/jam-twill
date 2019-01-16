@@ -10,46 +10,46 @@ class Croppa implements ImageServiceInterface
 {
     public function getUrl($id, array $params = []) {
    
-        Debugbar::addMessage( 'getUrl');
-        Debugbar::info($params);
+        //Debugbar::addMessage( 'getUrl');
+        //Debugbar::info($params);
          return '/' . $id;
     }
     public function getUrlWithCrop($id, array $crop_params, array $params = []){
      
-        Debugbar::addMessage( 'getUrlWithCrop');
+       // Debugbar::addMessage( 'getUrlWithCrop');
         return $this->getUrl($id);
     }
     public function getUrlWithFocalCrop($id, array $cropParams, $width, $height, array $params = []){
         
-       Debugbar::addMessage( 'getUrlWithFocalCrop');
+      // Debugbar::addMessage( 'getUrlWithFocalCrop');
        return $this->getUrl($id);
     }
     public function getLQIPUrl($id, array $params = []){
-        Debugbar::addMessage( 'getLQIPUrl');
+       // Debugbar::addMessage( 'getLQIPUrl');
         return $this->getUrl($id);
     }
     public function getSocialUrl($id, array $params = []){
-        Debugbar::addMessage( 'getSocialUrl');
+       // Debugbar::addMessage( 'getSocialUrl');
         return $this->getUrl($id);
     }
     public function getCmsUrl($id, array $params = []){
-        Debugbar::addMessage( 'getCmsUrl');
+       // Debugbar::addMessage( 'getCmsUrl');
         return $this->getUrl($id);
     }
     public function getRawUrl($id) {
-        Debugbar::addMessage( 'getRawUrl');
+       // Debugbar::addMessage( 'getRawUrl');
         return '/' . $id;
     }
     public function getDimensions($id){
-        Debugbar::addMessage( 'getDimensions');
+       // Debugbar::addMessage( 'getDimensions');
         return $this->getRawUrl($id);
     }
     public function getSocialFallbackUrl(){
-        Debugbar::addMessage( 'getSocialFallbackUrl');
+       // Debugbar::addMessage( 'getSocialFallbackUrl');
         return null;
     }
     public function getTransparentFallbackUrl(){
-        Debugbar::addMessage( 'getTransparentFallbackUrl');
+        //Debugbar::addMessage( 'getTransparentFallbackUrl');
         return null;
     }
 }
