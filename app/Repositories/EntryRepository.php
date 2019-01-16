@@ -19,4 +19,5 @@ class EntryRepository extends ModuleRepository
     {
         $this->model = $model;
     }
+
 }
