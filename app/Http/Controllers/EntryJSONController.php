@@ -12,20 +12,48 @@ class EntryJSONController extends Controller
 {
     //
     public function index() {
-        $entry=Entry::where('published', true)->with(['medias'=>function($q){
+        $entry=Entry::where('published', true)
+        ->with(['medias'=>function($q){
           $q->select(['medias.id', 'uuid','caption','alt_text', 'role','media_id', 'mediable_id']);
-        }])->with('content')->with(['slugs'=>function ($q) {
+        }])
+        ->with('content')
+        ->with(['slugs'=>function ($q) {
             $q->where('active', 1);
         }])->get();
     
         return $entry;
     }
 
-    public function show($slug) {
-        
-        $entry=Entry::where('published', true)->with('content')->whereHas('slugs', function ($q) use($slug){
+
+ 
+
+    public function show($slug){
+       
+        $entries = Entry::where('published', true)
+        //->with('content')
+        ->whereHas('slugs', function ($q) use($slug){
             $q->where('slug', $slug);
         })->get();
-        return $entry;
+
+        foreach ($entries as $entry) {
+            
+            $blocks = $entry->content()->get();
+            foreach ($blocks as $block) {
+                $childBlocks = $block->where('parent_id', $block->id)->get();
+                $block->blocks = $childBlocks;
+            }
+
+            $entry->blocks =  $blocks; 
+            
+        }
+        return $entries;
     }
 }   
+
+   // public function show($slug){
+    //     return Entry::where('published', true)
+    //     ->with('content')
+    //     ->whereHas('slugs', function ($q) use($slug){
+    //         $q->where('slug', $slug);
+    //     })->get();
+    // }

@@ -1,5 +1,4 @@
 <?php
-
 return [
     'dashboard' => [
         'modules' => [
@@ -8,10 +7,10 @@ return [
                 'label' => 'projects', // optional, if the name of your module above does not work as a label
                 'label_singular' => 'project', // optional, if the automated singular version of your name/label above does not work as a label
                 'count' => true, // show total count with link to index of this module
-                'create' => true, // show link in create new dropdown
-                'activity' => true, // show activities on this module in actities list
+                'create' => false, // show link in create new dropdown
+                'activity' => false, // show activities on this module in actities list
                 'draft' => true, // show drafts of this module for current user 
-                'search' => true, // show results for this module in global search
+                'search' => false, // show results for this module in global search
             ],
         ],
     ],
@@ -52,11 +51,24 @@ return [
                     'icon' => 'image',
                     'component' => 'a17-block-gallery',
                 ],
+                'mosaic' => [
+                    'title' => 'Mosaic',
+                    'icon' => 'image',
+                    'component' => 'a17-block-mosaic',
+                ],
                 'video' => [
                     'title' => 'Video',
-                    'icon' => 'text',
+                    'icon' => 'image',
                     'component' => 'a17-block-video',
-                ],
+                ]
+            ],
+            'repeaters' => [
+                'mosaic_asset' => [
+                    'title' => 'Mosaic',
+                    'trigger' => 'Add asset',
+                    'component' => 'a17-block-mosaic_asset',
+                    'max' => 10,
+                ]
             ],
             'crops' => [
                 'image' => [
@@ -75,6 +87,18 @@ return [
                     'default' => [
                         [
                             'name' => 'Uncropped',
+                            'ratio' => null,
+                            'minValues' => [
+                                'width' => 100,
+                                'height' => 100,
+                            ],
+                        ],
+                    ]
+                ],
+                'poster_image'=>[
+                    'default' => [
+                        [
+                            'name' => 'Poster',
                             'ratio' => null,
                             'minValues' => [
                                 'width' => 100,

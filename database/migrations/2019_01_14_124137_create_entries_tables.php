@@ -18,6 +18,8 @@ class CreateEntriesTables extends Migration
             // your generated model and form include a description field, to get you started, but feel free to get rid of it if you don't need it
             $table->text('description')->nullable();
 
+            $table->text('short_description')->nullable();
+
             $table->boolean('public')->default(true);
             // add those 2 colums to enable publication timeframe fields (you can use publish_start_date only if you don't need to provide the ability to specify an end date)
             // $table->timestamp('publish_start_date')->nullable();
