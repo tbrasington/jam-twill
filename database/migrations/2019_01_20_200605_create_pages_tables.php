@@ -24,7 +24,7 @@ class CreatePagesTables extends Migration
 
 
             // use this column with the HasPosition trait
-            // $table->integer('position')->unsigned()->nullable();
+            $table->integer('position')->unsigned()->nullable();
         });
 
         // remove this if you're not going to use any translated field, ie. using the HasTranslation trait. If you do use it, create fields you want translatable in this table instead of the main table above. You do not need to create fields in both tables.

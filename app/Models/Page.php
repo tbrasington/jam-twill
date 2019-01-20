@@ -5,19 +5,21 @@ namespace App\Models;
 use A17\Twill\Models\Behaviors\HasBlocks;
 use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Behaviors\HasMedias;
+use A17\Twill\Models\Behaviors\HasFiles;
 use A17\Twill\Models\Behaviors\HasRevisions;
+use A17\Twill\Models\Behaviors\HasPosition;
+use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
-use A17\Twill\Models\Block;
 
-class Page extends Model 
+class Page extends Model implements Sortable
 {
-    use HasBlocks, HasSlug, HasMedias, HasRevisions;
+    use HasBlocks, HasSlug, HasMedias, HasFiles, HasRevisions, HasPosition;
 
     protected $fillable = [
         'published',
         'title',
         'description',
-        // 'position',
+        'position',
         // 'public',
         // 'featured',
         // 'publish_start_date',
@@ -62,8 +64,4 @@ class Page extends Model
     //         ],
     //     ],
     // ];
-    public function content(){
-        return $this->morphMany(Block::class, 'blockable')->select(['id', 'blockable_id','content'])->orderBy('blocks.position', 'asc');
-     }
-
 }

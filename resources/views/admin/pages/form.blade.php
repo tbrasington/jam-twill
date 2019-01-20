@@ -4,10 +4,10 @@
     @formField('input', [
         'name' => 'description',
         'label' => 'Description',
-        'maxlength' => 500
+        'maxlength' => 100
     ])
 
 
-@formField('block_editor')
 
+@formField('block_editor')
 @stop
