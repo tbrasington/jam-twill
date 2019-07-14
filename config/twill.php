@@ -60,6 +60,11 @@ return [
                     'title' => 'Video',
                     'icon' => 'image',
                     'component' => 'a17-block-video',
+                ],
+                'card' => [
+                    'title' => 'Card',
+                    'icon' => 'image',
+                    'component' => 'a17-block-card',
                 ]
             ],
             'repeaters' => [
@@ -84,6 +89,18 @@ return [
                     ]
                 ], 
                 'gallery' => [
+                    'default' => [
+                        [
+                            'name' => 'Uncropped',
+                            'ratio' => null,
+                            'minValues' => [
+                                'width' => 100,
+                                'height' => 100,
+                            ],
+                        ],
+                    ]
+                ],
+                'card' => [
                     'default' => [
                         [
                             'name' => 'Uncropped',

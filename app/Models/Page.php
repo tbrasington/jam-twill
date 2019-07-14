@@ -10,6 +10,8 @@ use A17\Twill\Models\Behaviors\HasRevisions;
 use A17\Twill\Models\Behaviors\HasPosition;
 use A17\Twill\Models\Behaviors\Sortable;
 use A17\Twill\Models\Model;
+use A17\Twill\Models\Block;
+
 
 class Page extends Model implements Sortable
 {
@@ -20,6 +22,7 @@ class Page extends Model implements Sortable
         'title',
         'description',
         'position',
+        'isHomepage',
         // 'public',
         // 'featured',
         // 'publish_start_date',
@@ -42,6 +45,31 @@ class Page extends Model implements Sortable
     public $checkboxes = [
         'published'
     ];
+
+
+
+    public function content(){
+        $entries = $this->morphMany(Block::class, 'blockable')
+        ->select(['id', 'blockable_id','type','content'])
+        ->where('type' ,'!=' ,'mosaic_asset')
+        ->with('files')
+        ->orderBy('blocks.position', 'asc');
+       
+        return $entries;
+     }
+
+   public function blockcontents() {
+
+        $blocks = $this->morphMany(Block::class, 'blockable')->select(['id', 'blockable_id','type','content'])
+        ->where('type' ,'!=' ,'mosaic_asset')
+        ->with('files')
+        ->orderBy('blocks.position', 'asc')
+        ->get();
+
+        return $blocks;
+
+        
+    }
 
     // uncomment and modify this as needed if you use the HasMedias trait
     // public $mediasParams = [

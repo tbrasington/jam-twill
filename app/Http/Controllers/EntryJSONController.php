@@ -38,11 +38,17 @@ class EntryJSONController extends Controller
             $blocks = $entry->content()->get();
             foreach ($blocks as $block) {
                 $childBlocks = $block->where('parent_id', $block->id)->get();
-                $block->blocks = $childBlocks;
+                $block->blocks = (sizeof($childBlocks)<=0 ? null : $childBlocks); 
             }
 
-            $entry->blocks =  $blocks; 
-            
+            $entry->blocks =  (sizeof($blocks)<=0 ? null : $blocks); 
+            // get the first slug
+            $entry->slug = $entry->slugs[0]->slug;
+
+            // medias
+            foreach ($entry->medias as $media) {
+                $media->caption = ($media->caption===null ? "" : $media->caption);
+            }
         }
     
         return $entries;
