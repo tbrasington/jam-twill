@@ -1,3 +1,10 @@
+@formField('input', [
+    'name' => 'title', 
+    'label' => 'Title',
+    'maxlength' => 250,
+    'placeholder' => 'Title of the gallery',
+])
+
 @formField('select', [
     'name' => 'galleryType',
     'label' => 'Gallery Type',
