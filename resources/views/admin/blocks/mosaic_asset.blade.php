@@ -27,3 +27,20 @@
         ]
     ]
 ])
+
+
+@formField('select', [
+    'name' => 'imageSize',
+    'label' => 'Image Size',
+    'placeholder' => 'Select ',
+    'options' => [
+        [
+            'value' => 1,
+            'label' => 'Full Bleed'
+        ],
+        [
+            'value' => 2,
+            'label' => 'Inline'
+        ]
+    ]
+])
