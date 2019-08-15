@@ -20,4 +20,16 @@ class EntryRepository extends ModuleRepository
         $this->model = $model;
     }
 
+    public function afterSave($object, $fields)
+    {
+        $this->updateBrowser($object, $fields, 'sections');
+        parent::afterSave($object, $fields);
+    }
+    public function getFormFields($object)
+    {
+        $fields = parent::getFormFields($object);
+        $fields['browsers']['sections'] = $this->getFormFieldsForBrowser($object, 'sections');
+        return $fields;
+    }
+
 }

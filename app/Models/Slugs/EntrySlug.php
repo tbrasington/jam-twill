@@ -8,4 +8,5 @@ class EntrySlug extends Model
 {
     protected $table = "entry_slugs";
 
+
 }

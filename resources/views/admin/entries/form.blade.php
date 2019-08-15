@@ -1,5 +1,7 @@
 @extends('twill::layouts.form')
 
+
+
 @section('contentFields')
     @formField('input', [
         'name' => 'short_description',
@@ -24,5 +26,13 @@
 
 
 @formField('block_editor')
+
+@formField('browser', [
+        'routePrefix' => 'work',
+        'moduleName' => 'sections',
+        'name' => 'sections',
+        'label' => 'Sections',
+        'max' => 1
+    ])
 
 @stop

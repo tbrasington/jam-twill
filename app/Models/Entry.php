@@ -26,7 +26,8 @@ class Entry extends Model implements Sortable
         'description',
         'position',
         'public',
-        'short_description'
+        'short_description',
+        'browsers'
         // 'featured',
         // 'publish_start_date',
         // 'publish_end_date',
@@ -80,6 +81,11 @@ class Entry extends Model implements Sortable
     public $filesParams = ['video_file']; // a list of file roles
 
 
+    public function sections()
+    {
+        return $this->belongsToMany(\App\Models\Section::class);
+    }
+    
     public function content(){
         $entries = $this->morphMany(Block::class, 'blockable')
         ->select(['id', 'blockable_id','type','content'])
