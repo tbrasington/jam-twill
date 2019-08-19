@@ -1,5 +1,6 @@
 <?php
 return [
+    'admin_app_url' => env('ADMIN_APP_URL', env('APP_URL').'/admin'),
     'dashboard' => [
         'modules' => [
             'App\Models\Entry' => [ // module name if you added a morph map entry for it, otherwise FQCN of the model (eg. App\Models\Project)
