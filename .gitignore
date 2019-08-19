@@ -9,7 +9,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-public/assets/admin
 public/mix-manifest.json
 public/hot
 public/uploads/*
