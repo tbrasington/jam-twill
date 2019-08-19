@@ -61,6 +61,7 @@ class EntryJSONController extends Controller
        
         $entries = Entry::where('published', true)
         //->with('content')
+        ->with('sections')
         ->whereHas('slugs', function ($q) use($slug){
             $q->where('slug', $slug);
         })->get();
@@ -78,7 +79,12 @@ class EntryJSONController extends Controller
         }
         return $entries;
     }
+
+ 
+    
 }   
+
+
 
    // public function show($slug){
     //     return Entry::where('published', true)

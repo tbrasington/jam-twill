@@ -38,6 +38,11 @@ class Section extends Model implements Sortable
         'published'
     ];
 
+    public function entries()
+    {
+        return $this->belongsToMany(\App\Models\Entry::class);
+    }
+
     // uncomment and modify this as needed if you use the HasMedias trait
     // public $mediasParams = [
     //     'cover' => [
