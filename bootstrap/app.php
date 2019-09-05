@@ -41,6 +41,11 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->singleton('s3', function () {
+
+    return Storage::disk('s3')->getDriver();
+});
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

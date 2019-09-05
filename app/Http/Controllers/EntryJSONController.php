@@ -47,6 +47,7 @@ class EntryJSONController extends Controller
 
             // medias
             foreach ($entry->medias as $media) {
+               // $media->uuid = config('twill.aws_url') . '/'.  $media->uuid;
                 $media->caption = ($media->caption===null ? "" : $media->caption);
             }
         }

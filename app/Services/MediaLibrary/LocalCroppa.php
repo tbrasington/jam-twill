@@ -5,14 +5,22 @@ namespace App\Services\MediaLibrary;
 use A17\Twill\Services\MediaLibrary\ImageServiceInterface;
 use Barryvdh\Debugbar\Facade as Debugbar;
 use Barryvdh\Debugbar\ServiceProvider as DebugbarServiceProvider;
+ 
 
-class Croppa implements ImageServiceInterface
+class LocalCroppa implements ImageServiceInterface
 {
     public function getUrl($id, array $params = []) {
    
-        //Debugbar::addMessage( 'getUrl');
-        //Debugbar::info($params);
-         return '/' . $id;
+       // Debugbar::addMessage( 'getUrl');
+   
+ 
+       // return  config('twill.aws_url') . '/' . $id;
+        
+       //return \Croppa::render( $id);
+
+      // return config('twill.aws_url') . '/' . $id;
+
+      return '/' . $id;
     }
     public function getUrlWithCrop($id, array $crop_params, array $params = []){
      
@@ -33,12 +41,15 @@ class Croppa implements ImageServiceInterface
         return $this->getUrl($id);
     }
     public function getCmsUrl($id, array $params = []){
-       // Debugbar::addMessage( 'getCmsUrl');
+        // Debugbar::addMessage( 'getCmsUrl');
         return $this->getUrl($id);
     }
     public function getRawUrl($id) {
        // Debugbar::addMessage( 'getRawUrl');
-        return '/' . $id;
+       // return '/' . $id;
+     //   return  \Croppa::render(\Croppa::url( $id ), 200,200);
+     return $this->getUrl($id);
+
     }
     public function getDimensions($id){
        // Debugbar::addMessage( 'getDimensions');
