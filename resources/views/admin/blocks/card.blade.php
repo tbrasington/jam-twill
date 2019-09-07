@@ -7,15 +7,19 @@
 
 @formField('select', [
     'name' => 'fullwidth',
-    'label' => 'FullWidth',
+    'label' => 'Card type',
     'options' => [
         [
-            'value' => true,
-            'label' => 'Yes'
+            'value' => 'pullout',
+            'label' => 'Pullout'
         ],
         [
-            'value' => false,
-            'label' => 'No'
+            'value' => 'half',
+            'label' => 'Half'
+        ],
+        [
+            'value' => 'full',
+            'label' => 'Full'
         ]
     ]
 ])
