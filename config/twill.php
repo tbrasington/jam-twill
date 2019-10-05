@@ -1,23 +1,23 @@
 <?php
 
-// use Aws\S3\S3Client;
-// use League\Flysystem\AwsS3v3\AwsS3Adapter;
-// use League\Flysystem\Filesystem;
+use Aws\S3\S3Client;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
+use League\Flysystem\Filesystem;
 
-// $client = new S3Client([
-//     'credentials' => [
-//         'key'    => env('S3_KEY'),
-//         'secret' =>  env('S3_SECRET'),
-//     ],
-//     'region' => env('S3_REGION'),
-//     'version' => 'latest',
-// ]);
+$client = new S3Client([
+    'credentials' => [
+        'key'    => env('S3_KEY'),
+        'secret' =>  env('S3_SECRET'),
+    ],
+    'region' => env('S3_REGION'),
+    'version' => 'latest',
+]);
 
-// $adapter = new AwsS3Adapter($client, env('S3_BUCKET'));
+$adapter = new AwsS3Adapter($client, env('S3_BUCKET'));
 
-// $filesystem = new Filesystem($adapter);
+$filesystem = new Filesystem($adapter);
 
-// 'source' => env('GLIDE_SOURCE',  $filesystem ),
+//'source' => env('GLIDE_SOURCE', storage_path('app/public/' . config('twill.media_library.local_path'))),
 
 return [
     'aws_url' => env('AWS_URL'),
@@ -50,8 +50,8 @@ return [
         'translated_form_fields' => false,
     ],
     'glide' => [
-        'source' => env('GLIDE_SOURCE', storage_path('app/public/' . config('twill.media_library.local_path'))),
-
+        
+        'source' => env('GLIDE_SOURCE',  $filesystem ),
         'cache' => env('GLIDE_CACHE', storage_path('app')),
         'cache_path_prefix' => env('GLIDE_CACHE_PATH_PREFIX', 'glide_cache'),
         'base_url' => env('GLIDE_BASE_URL',  config('app.url')),
