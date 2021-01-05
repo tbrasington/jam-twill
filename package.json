@@ -17,7 +17,7 @@
         "twill-watch-blocks": "watch 'npm run twill-copy-blocks' resources/assets/js/blocks --wait=2 --interval=0.1"
     },
     "devDependencies": {
-        "axios": "^0.18",
+        "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "concurrently": "^4.1.0",
         "cross-env": "^5.1",
